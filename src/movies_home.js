@@ -22,7 +22,7 @@ function Home() {
     </div>
 }
 
-function Movies(props) {
+const Movies = (props) => {
 
     let movieState = props.movieState;
 

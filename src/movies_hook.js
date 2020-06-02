@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 const api_key = "ef48c3495c55a3bc5d6e7e1851f90f9b"
 const movieBaseUrl = "https://api.themoviedb.org/3/"
 const popularMovieUrl = movieBaseUrl + "movie/popular?api_key=" + api_key + "&language=en-US&page=1"
-const imageBaseUrl = "https://image.tmdb.org/t/p/w500/"
+const imageBaseUrl = "https://image.tmdb.org/t/p/w400/"
 
 function buildQueryUrl(query) {
     return movieBaseUrl + "search/movie?api_key=" + api_key + "&language=en-US&query=" + query + "&page=1&include_adult=false"
@@ -54,11 +54,9 @@ export function useMovieSearchApi(initialValue) {
                 .then(
                     result => {
                         if (!didCancel) {
-                            setTimeout(() => {
-                                console.log("Fetch Done")
-                                let movieDetails = result.results.map(it => new MovieDetails(it["original_title"], it["overview"], it["poster_path"]));
-                                setMovieState(new MovieStates(false, null, movieDetails))
-                            }, 2000)
+                            console.log("Fetch Done")
+                            let movieDetails = result.results.map(it => new MovieDetails(it["original_title"], it["overview"], it["poster_path"]));
+                            setMovieState(new MovieStates(false, null, movieDetails))
                         }
                     },
                     error => {
