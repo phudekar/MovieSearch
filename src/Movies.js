@@ -1,23 +1,30 @@
 import React, {useState} from "react";
+
 import './App.css';
-import {useMovieState} from "./movies_hook";
+import {useMovieSearchApi, useMovieState} from "./movies_hook";
 
 function Home() {
-    const [refreshTimeStamp, setRefreshTimeStamp] = useState(0)
-    console.log("Home " + refreshTimeStamp)
+    const [query, setQuery] = useState("Avengers")
+    const [movieState, fetchFromQuery] = useMovieSearchApi(query)
     return <div>
+        <input
+            type="text"
+            value={query}
+            onChange={(e) => {
+                setQuery(e.target.value)
+            }}
+        />
         <button onClick={() => {
-            const date = new Date()
-            setRefreshTimeStamp(date.getMilliseconds())
-        }}>Refresh
+            fetchFromQuery(query)
+        }}>Search
         </button>
-        <Movies refreshTime={refreshTimeStamp}/>
+        <Movies movieState={movieState}/>
     </div>
 }
 
 function Movies(props) {
 
-    const movieState = useMovieState(props.refreshTime)
+    let movieState = props.movieState;
 
     if (movieState.loading) {
         return <h1>Loading...</h1>
