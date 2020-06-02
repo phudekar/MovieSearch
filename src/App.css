@@ -1,10 +1,12 @@
 .App {
   text-align: center;
   display: grid;
+  background: #f8f8f8;
+  height: 100vh;
 }
 
 .search-input {
-  width: 100%;
+  width: calc(100% - 12px);
   padding: 6px;
   font-size: 1.5em;
   margin: 24px 0px;
@@ -15,6 +17,7 @@
   margin-right: auto;
   max-width: 1280px;
   width: 100%;
+  overflow-y: visible;
 }
 
 .movie-container {
@@ -26,13 +29,16 @@
 
 .movie {
   background: white;
-  box-shadow: 0px 0px 3px black;
+  box-shadow: 0px 1px 2px gray;
   text-align: left;
 }
 
 .movie img {
   object-fit: cover;
   width: 100%;
+  height: 500px;
+  background: lightgray;
+  display: block;
 }
 
 .movie .content {
@@ -43,6 +49,15 @@
   /* white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden; */
+}
+
+.loader {
+  font-size: 2em;
+  font-weight: bold;
+}
+.error {
+  color: lightcoral;
+  font-size: 1.5em;
 }
 
 .App-logo {

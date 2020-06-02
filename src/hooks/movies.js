@@ -18,6 +18,8 @@ export function useMovieSearchApi() {
                 .then(movies => {
                     setMovieState({ loading: false, movies });
                 }, handleError);
+        } else if (movieState.movies && movieState.movies.length > 0) {
+            setMovieState({ loading: false, movies: [] })
         }
     }, [query]);
 
