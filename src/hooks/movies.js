@@ -17,8 +17,8 @@ export function useMovieSearchApi() {
             fetchMovies(query)
                 .then(movies => {
                     setMovieState({ loading: false, movies });
-                }, handleError);
-        } else if (movieState.movies && movieState.movies.length > 0) {
+                }).catch(handleError);
+        } else {
             setMovieState({ loading: false, movies: [] })
         }
     }, [query]);

@@ -24,10 +24,12 @@ const Movies = ({ movies = [] }) => (
 export const MovieItem = ({ title, imageUrl, description, delay }) => (
     <Transition in={true} timeout={{ appear: 500, enter: 300, exit: 200 }} appear={true} exit={false} enter={false}>
         {state => {
-            return <div className="movie" style={{
-                ...defaultStyle(delay),
-                ...transitionStyles[state]
-            }}>
+            return <div className="movie"
+                title="movie"
+                style={{
+                    ...defaultStyle(delay),
+                    ...transitionStyles[state]
+                }}>
                 <img alt={title} src={imageUrl} />
                 <div className="content">
                     <h3>{title}</h3>

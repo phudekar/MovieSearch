@@ -11,7 +11,7 @@ const Home = () => {
 
         {loading && <Loader />}
 
-        {error && <div class="error">{error}</div>}
+        {error && <div className="error">{error}</div>}
 
         {!loading && !error && <Movies {...{ movies }} />}
     </div>
