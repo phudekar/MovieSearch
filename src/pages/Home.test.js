@@ -33,7 +33,7 @@ it('should show error', async () => {
 })
 
 it('should show loader while loading movies', async () => {
-    const { container, queryByText } = render(<Home />)
+    const { container, queryByText, } = render(<Home />)
 
     const searchInput = container.querySelector('input');
     expect(searchInput).toBeInTheDocument();

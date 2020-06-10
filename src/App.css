@@ -51,10 +51,6 @@
     overflow: hidden; */
 }
 
-.loader {
-  font-size: 2em;
-  font-weight: bold;
-}
 .error {
   color: lightcoral;
   font-size: 1.5em;

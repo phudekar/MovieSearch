@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 
 const Home = () => {
     const [{ loading, movies, error }, searchMovies] = useMovieSearchApi()
+
     return <div className="container">
         <SearchBar onSearch={query => searchMovies(query)} />
 

@@ -1,11 +1,9 @@
-const api_key = "ef48c3495c55a3bc5d6e7e1851f90f9b"
-const movieBaseUrl = "https://api.themoviedb.org/3/"
-const imageBaseUrl = "https://image.tmdb.org/t/p/w400/"
+import config from '../config';
 
 // const popularMovieUrl = movieBaseUrl + "movie/popular?api_key=" + api_key + "&language=en-US&page=1"
 
 function buildQueryUrl(query) {
-    return movieBaseUrl + "search/movie?api_key=" + api_key + "&language=en-US&query=" + query + "&page=1&include_adult=false"
+    return `${config.movieBaseUrl}search/movie?api_key=${config.api_key}&language=en-US&query=${query}&page=1&include_adult=false`
 }
 
 
@@ -14,7 +12,7 @@ class MovieDetails {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.imageUrl = imageBaseUrl + imageUrl;
+        this.imageUrl = config.imageBaseUrl + imageUrl;
     }
 }
 
