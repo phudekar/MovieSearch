@@ -1,11 +1,11 @@
 import React from "react";
-import {useMovieDetailsApi} from "../hooks/movies";
+import { useMovieDetailsApi } from "../hooks/movies";
 import Loader from "../components/Loader";
 
 const MovieOverview = ({match}) => {
     const [{loading, movieDetails, error}, updateMovieId] = useMovieDetailsApi(match.params.movieId)
     if (loading) {
-        return <Loader/>
+        return <Loader />
     }
     if (movieDetails) {
         return <div>
@@ -22,10 +22,6 @@ const MovieOverview = ({match}) => {
     return <div>
         <h2>Error</h2>
     </div>
-}
-
-const Genres = (props) => {
-    return <ul>{props.items.map((name, i) => <li key={i}>{name}</li>)}</ul>
 }
 
 export default MovieOverview
