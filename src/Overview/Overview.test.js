@@ -30,27 +30,18 @@ it('should show details', async () => {
 })
 
 it('should show genres', async () => {
+
     const movieDetails = {
         title: 'Hello',
         overview: 'My Overview',
         tagline: 'Part of the journey is the end',
-        genres: [
-            {
-                name: "Action"
-            },
-            {
-                name: "Comedy"
-            }
-        ]
+        genres: ["Action", "Comedy"]
     };
     fetchDetails.mockReturnValue(Promise.resolve(movieDetails))
     const movieId = 123
     const {queryByText} = render(<MovieOverview {...{movieId}}/>)
     await waitForDomChange()
-    expect(queryByText(movieDetails.genres[0].name)).toBeInTheDocument()
-    expect(queryByText(movieDetails.genres[1].name)).toBeInTheDocument()
-
-    /*movieDetails.genres.forEach(value =>
-        expect(queryByText(value.name)).toBeInTheDocument()
-    )*/
+    movieDetails.genres.forEach(value =>
+        expect(queryByText(value)).toBeInTheDocument()
+    )
 })

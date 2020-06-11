@@ -14,9 +14,6 @@ const MovieOverview = (props) => {
             <h5>{movieDetails.overview}</h5>
             <img src={movieDetails.posterUrl}/>
             <Genres items={movieDetails.genres}/>
-            {/*<ul>
-                {movieDetails.genres.map((name, i) => <h4 key={i}>{name}</h4>)}
-            </ul>*/}
         </div>
     }
     if (error) {
