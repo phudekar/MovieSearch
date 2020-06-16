@@ -9,7 +9,7 @@ import MovieOverview from "./Overview";
 
 configure({adapter: new Adapter()});
 it('should show Home component for / Router (using memory Router)', () => {
-    const component = mount(<MemoryRouter initialentries="{['/']}">
+    const component = mount(<MemoryRouter initialEntries={['/']}>
             <App/>
         </MemoryRouter>
     );
@@ -17,7 +17,7 @@ it('should show Home component for / Router (using memory Router)', () => {
 })
 
 it('should show MovieOverview component for /movies/id Router (using memory Router)', () => {
-    const component = mount(<MemoryRouter initialentries={['/movie/234']}>
+    const component = mount(<MemoryRouter initialEntries={['/movie/234']}>
             <App/>
         </MemoryRouter>
     );
@@ -26,7 +26,7 @@ it('should show MovieOverview component for /movies/id Router (using memory Rout
 })
 
 it('should show PageNotFound component for /unknown Router (using memory Router)', () => {
-    const component = mount(<MemoryRouter initialentries="{['/unknown']}">
+    const component = mount(<MemoryRouter initialEntries={['/unknown']}>
             <App/>
         </MemoryRouter>
     );
