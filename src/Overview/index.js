@@ -2,8 +2,8 @@ import React from "react";
 import {useMovieDetailsApi} from "../hooks/movies";
 import Loader from "../components/Loader";
 
-const MovieOverview = (props) => {
-    const [{loading, movieDetails, error}, updateMovieId] = useMovieDetailsApi(props.movieId)
+const MovieOverview = ({match}) => {
+    const [{loading, movieDetails, error}, updateMovieId] = useMovieDetailsApi(match.params.movieId)
     if (loading) {
         return <Loader/>
     }

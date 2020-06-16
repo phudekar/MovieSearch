@@ -7,7 +7,7 @@ const imageBaseUrl = "https://image.tmdb.org/t/p/w400/"
 // const popularMovieUrl = movieBaseUrl + "movie/popular?api_key=" + api_key + "&language=en-US&page=1"
 
 function buildMovieDetailsUrl(movieId) {
-    return movieDetails + "movie/" + movieId + "?api_key=" + api_key + "&language=en-US&page=1&include_adult=false"
+    return movieBaseUrl + "movie/" + movieId + "?api_key=" + api_key + "&language=en-US&page=1&include_adult=false"
 }
 
 function buildQueryUrl(query) {
