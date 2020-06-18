@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Home from './pages/Home';
+import Home, {SearchResult} from './pages/Home';
 import MovieOverview from "./Overview";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
@@ -11,6 +11,7 @@ function App() {
             <Switch>
                 <Route path="/" exact component={Home}/>
                 <Route path="/movie/:movieId" exact component={MovieOverview}/>
+                <Route path="/search/:query" exact component={SearchResult}/>
                 <Route component={PageNotFound}/>
             </Switch>
         </Router>

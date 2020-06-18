@@ -1,9 +1,9 @@
 import {useState, useEffect} from 'react';
 import {fetchDetails, fetchMovies} from '../api';
 
-export function useMovieSearchApi() {
+export function useMovieSearchApi(defaultQuery) {
     const [movieState, setMovieState] = useState([]);
-    const [query, setQuery] = useState(null);
+    const [query, setQuery] = useState(defaultQuery);
 
     const handleError = (error) => {
         setMovieState({loading: false, movies: [], error: error.message});
