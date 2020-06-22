@@ -26,11 +26,11 @@
 
 .search-input {
     width: calc(100% - 12px);
-    padding: 6px;
+    padding: 12px 12px 12px 20px;
     font-size: 1.5em;
     margin: 24px 0px;
     background: transparent;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 100px;
 }
 

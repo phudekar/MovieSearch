@@ -26,7 +26,7 @@ export const Home = () => {
         <SearchBar
             isCenter={true}
             onSubmit={(value) => {
-                history.push(`search/${value}`)
+                history.push(`/search/${value}`)
             }}/>
     </div>
 }

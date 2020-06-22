@@ -34,7 +34,7 @@ export const MovieItem = ({id, title, imageUrl, description, delay}) => {
                             ...transitionStyles[state]
                         }}
                         onClick={() => {
-                            history.push(`movie/${id}`)
+                            history.push(`/movie/${id}`)
                         }}
             >
                 <img alt={title} src={imageUrl}/>
