@@ -1,6 +1,6 @@
 import {MemoryRouter} from "react-router-dom";
 import React from "react";
-import Home from "./pages/Home";
+import Home, {SearchResult} from "./pages/Home";
 import {configure, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App, {PageNotFound} from "./App";
@@ -29,4 +29,12 @@ it('should show PageNotFound component for /unknown Router (using memory Router)
         </MemoryRouter>
     );
     expect(component.find(PageNotFound)).toHaveLength(1);
+})
+
+it('should show SearchResult component for /search/query Router (using memory Router)', () => {
+    const component = mount(<MemoryRouter initialEntries={['/search/Hello']}>
+            <App/>
+        </MemoryRouter>
+    );
+    expect(component.find(SearchResult)).toHaveLength(1);
 })
