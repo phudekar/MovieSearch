@@ -1,25 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const SearchBar = (props) => {
-    let queryValue = props.defaultValue ? props.defaultValue : "";
-    console.log(queryValue)
+    const [query, setQuery] = useState(props.defaultValue ? props.defaultValue : "")
     return <input
         className={props.isCenter ? 'search-input-center' : 'search-input'}
         type="text"
-        onSubmit={(e) => {
-            console.log(e.target)
-        }}
+        value={query}
         placeholder="Search movies"
         onChange={(e) => {
-            queryValue = e.target.value
+            setQuery(e.target.value)
             if (props.onSearch) {
-                props.onSearch(e.target.value)
+                props.onSearch(query)
             }
         }}
         onKeyPress={event => {
             if (event.key === 'Enter') {
                 if (props.onSubmit) {
-                    props.onSubmit(queryValue)
+                    props.onSubmit(query)
                 }
             }
         }}

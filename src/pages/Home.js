@@ -6,8 +6,14 @@ import SearchBar from "../components/SearchBar";
 import Loader from "../components/Loader";
 import {useHistory} from "react-router-dom";
 
-export const SearchResult = ({match}) => {
-    const query = match.params.query;
+function useQuery(props) {
+    return new URLSearchParams(props.location.search);
+}
+
+export const SearchResult = (props) => {
+    let queryHook = useQuery(props);
+    const query = queryHook.get("query")
+
     const [{loading, movies, error}, searchMovies] = useMovieSearchApi(query)
     return <div className="container">
         <SearchBar defaultValue={query} onSearch={query => searchMovies(query)}/>
@@ -26,7 +32,7 @@ export const Home = () => {
         <SearchBar
             isCenter={true}
             onSubmit={(value) => {
-                history.push(`/search/${value}`)
+                history.push(`/search?query=${value}`)
             }}/>
     </div>
 }
