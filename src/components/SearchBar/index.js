@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './SearchBar.css';
 
 const SearchBar = (props) => {
     const [query, setQuery] = useState(props.defaultValue ? props.defaultValue : "")

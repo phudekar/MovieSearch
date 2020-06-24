@@ -1,0 +1,28 @@
+.search-input-center {
+    width: calc(50% - 12px);
+    padding: 12px 12px 12px 20px;
+    font-size: 1.5em;
+    margin: auto;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.search-input-center::placeholder {
+    color: white;
+}
+
+.search-input {
+    width: calc(100% - 12px);
+    padding: 12px 12px 12px 20px;
+    font-size: 1.5em;
+    margin: 24px 0px;
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 100px;
+}
