@@ -4,6 +4,7 @@ import Movies from '../components/Movies';
 import {useMovieSearchApi} from "../hooks/movies";
 import SearchBar from "../components/SearchBar";
 import Loader from "../components/Loader";
+import Error from "../components/Error";
 import {useHistory} from "react-router-dom";
 
 function useQuery(props) {
@@ -20,9 +21,10 @@ export const SearchResult = (props) => {
 
         {loading && <Loader/>}
 
-        {error && <div className="error">{error}</div>}
+        {error && <Error error={error}/>}
 
         {!loading && !error && <Movies {...{movies}} />}
+
     </div>
 }
 
