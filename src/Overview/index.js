@@ -1,6 +1,8 @@
 import React from "react";
 import {useMovieDetailsApi} from "../hooks/movies";
 import Loader from "../components/Loader";
+import Error from "../components/Error";
+import './Overview.css'
 
 const MovieOverview = ({match}) => {
     const [{loading, movieDetails, error}, updateMovieId] = useMovieDetailsApi(match.params.movieId)
@@ -8,20 +10,17 @@ const MovieOverview = ({match}) => {
         return <Loader/>
     }
     if (movieDetails) {
-        return <div>
-            <h1>{movieDetails.title}</h1>
-            <h3>{movieDetails.tagline}</h3>
-            <h5>{movieDetails.overview}</h5>
+        return <div className="details-container">
             <img src={movieDetails.posterUrl}/>
-            <Genres items={movieDetails.genres}/>
+            <div className="item-details">
+                <h1>{movieDetails.title}</h1>
+                <h3>{movieDetails.tagline}</h3>
+                <p>{movieDetails.overview}</p>
+                <Genres items={movieDetails.genres}/>
+            </div>
         </div>
     }
-    if (error) {
-        console.log(error.message)
-    }
-    return <div>
-        <h2>Error</h2>
-    </div>
+    return <Error error="Something went wrong."/>
 }
 
 const Genres = (props) => {
