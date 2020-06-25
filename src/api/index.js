@@ -1,17 +1,13 @@
-const api_key = "ef48c3495c55a3bc5d6e7e1851f90f9b"
-const movieId = 299534
-const movieDetails = "https://api.themoviedb.org/3/movie/299534?api_key=ef48c3495c55a3bc5d6e7e1851f90f9b&language=en-US"
-const movieBaseUrl = "https://api.themoviedb.org/3/"
-const imageBaseUrl = "https://image.tmdb.org/t/p/w400/"
+import config from '../config';
 
 // const popularMovieUrl = movieBaseUrl + "movie/popular?api_key=" + api_key + "&language=en-US&page=1"
 
 function buildMovieDetailsUrl(movieId) {
-    return movieBaseUrl + "movie/" + movieId + "?api_key=" + api_key + "&language=en-US&page=1&include_adult=false"
+    return `${config.movieBaseUrl}movie/${movieId}?api_key=${config.api_key}&language=en-US&page=1&include_adult=false`
 }
 
 function buildQueryUrl(query) {
-    return movieBaseUrl + "search/movie?api_key=" + api_key + "&language=en-US&query=" + query + "&page=1&include_adult=false"
+    return `${config.movieBaseUrl}search/movie?api_key=${config.api_key}&language=en-US&query=${query}&page=1&include_adult=false`
 }
 
 
@@ -20,7 +16,7 @@ class MoviesUI {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.imageUrl = imageBaseUrl + imageUrl;
+        this.imageUrl = config.imageBaseUrl + imageUrl;
     }
 }
 
@@ -30,7 +26,7 @@ class MoviesDetailsUI {
         this.title = title;
         this.overview = description;
         this.tagline = tagline;
-        this.posterUrl = imageBaseUrl + imageUrl;
+        this.posterUrl = config.imageBaseUrl + imageUrl;
         this.genres = genres.map(result => result.name)
     }
 }

@@ -5,13 +5,13 @@ import Error from "../components/Error";
 import './Overview.css'
 
 const MovieOverview = ({match}) => {
-    const [{loading, movieDetails, error}, updateMovieId] = useMovieDetailsApi(match.params.movieId)
+    const [{loading, movieDetails}] = useMovieDetailsApi(match.params.movieId)
     if (loading) {
         return <Loader/>
     }
     if (movieDetails) {
         return <div className="details-container">
-            <img src={movieDetails.posterUrl}/>
+            <img alt={movieDetails.title} src={movieDetails.posterUrl}/>
             <div className="item-details">
                 <h1>{movieDetails.title}</h1>
                 <h3>{movieDetails.tagline}</h3>
