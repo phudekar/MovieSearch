@@ -1,6 +1,7 @@
 import React from 'react';
 import {Transition} from 'react-transition-group';
 import {useHistory} from "react-router-dom";
+import './Movies.css'
 
 const duration = 500;
 
@@ -39,8 +40,8 @@ export const MovieItem = ({id, title, imageUrl, description, delay}) => {
             >
                 <img alt={title} src={imageUrl}/>
                 <div className="content">
-                    <h3>{title}</h3>
-                    <p>{description}</p>
+                    <h3 id='text'>{title}</h3>
+                    {/*  <p>{description}</p>*/}
                 </div>
             </div>
         }
