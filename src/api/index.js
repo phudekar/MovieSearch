@@ -3,7 +3,7 @@ import config from '../config';
 // const popularMovieUrl = movieBaseUrl + "movie/popular?api_key=" + api_key + "&language=en-US&page=1"
 
 function buildMovieDetailsUrl(movieId) {
-    return `${config.movieBaseUrl}movie/${movieId}?api_key=${api_key}&language=en-US&page=1&include_adult=false`
+    return `${config.movieBaseUrl}movie/${movieId}?api_key=${config.api_key}&language=en-US&page=1&include_adult=false`
 }
 
 function buildQueryUrl(query) {
@@ -26,7 +26,7 @@ class MoviesDetailsUI {
         this.title = title;
         this.overview = description;
         this.tagline = tagline;
-        this.posterUrl = imageBaseUrl + imageUrl;
+        this.posterUrl = config.imageBaseUrl + imageUrl;
         this.genres = genres.map(result => result.name)
     }
 }

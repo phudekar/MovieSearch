@@ -5,7 +5,7 @@ import loader from './loader.png'
 const Loader = () => (
     <div className="loader">
         <img className="loader-item"
-             src={loader}/>
+             src={loader} alt="loading..."/>
     </div>
 )
 
