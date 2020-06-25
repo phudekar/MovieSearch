@@ -1,20 +1,41 @@
 import React from "react";
+import './Home.css';
 import Movies from '../components/Movies';
-import { useMovieSearchApi } from "../hooks/movies";
+import {useMovieSearchApi} from "../hooks/movies";
 import SearchBar from "../components/SearchBar";
 import Loader from "../components/Loader";
+import Error from "../components/Error";
+import {useHistory} from "react-router-dom";
 
-const Home = () => {
-    const [{ loading, movies, error }, searchMovies] = useMovieSearchApi()
+function useQuery(props) {
+    return new URLSearchParams(props.location.search);
+}
 
+export const SearchResult = (props) => {
+    let queryHook = useQuery(props);
+    const query = queryHook.get("query")
+
+    const [{loading, movies, error}, searchMovies] = useMovieSearchApi(query)
     return <div className="container">
-        <SearchBar onSearch={query => searchMovies(query)} />
+        <SearchBar defaultValue={query} onSearch={query => searchMovies(query)}/>
 
-        {loading && <Loader />}
+        {loading && <Loader/>}
 
-        {error && <div className="error">{error}</div>}
+        {error && <Error error={error}/>}
 
-        {!loading && !error && <Movies {...{ movies }} />}
+        {!loading && !error && <Movies {...{movies}} />}
+
+    </div>
+}
+
+export const Home = () => {
+    const history = useHistory();
+    return <div className="home-container">
+        <SearchBar
+            isCenter={true}
+            onSubmit={(value) => {
+                history.push(`/search?query=${value}`)
+            }}/>
     </div>
 }
 

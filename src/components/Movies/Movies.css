@@ -1,0 +1,39 @@
+.movie-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 24px;
+    margin-bottom: 24px;
+}
+
+.movie {
+    position: relative;
+    background: white;
+    height: 450px;
+    box-shadow: 0px 1px 2px gray;
+    text-align: left;
+}
+
+#text {
+    bottom: 0;
+    left: 0;
+    color: white;
+    position: absolute;
+    padding: 12px;
+    margin-right: 10%;
+    background: rgb(0, 0, 0); /* fallback color */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.movie img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    background: lightgray;
+    display: block;
+}
+
+.movie .content {
+    /*padding: 0 24px;*/
+}
